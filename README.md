@@ -5,7 +5,7 @@ This project is a **real-time crack detection system** running on **Raspberry Pi
 ## 📸 Features
 
 - Runs on Raspberry Pi (tested on Pi 5)
-- Real-time crack detection with YOLOv8
+- Real-time crack detection with YOLOv11
 - Activates LED when a crack is found
 - Python-based, easy to deploy
 
@@ -13,7 +13,7 @@ This project is a **real-time crack detection system** running on **Raspberry Pi
 
 - Raspberry Pi OS (Bullseye or newer)
 - Python 3.8+
-- `ultralytics` (YOLOv8)
+- `ultralytics` (YOLOv11)
 - `opencv-python`
 - `torch`
 - `ncnn`
