@@ -23,6 +23,7 @@ This project is a **real-time crack detection system** running on **Raspberry Pi
 ## ⚙️ Installation & Setup
 
 ```bash
+
 sudo apt update && sudo apt upgrade -y
 
 mkdir yolo
