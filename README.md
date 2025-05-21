@@ -1,6 +1,6 @@
 # Raspberry Pi Crack Detector 🔍
 
-This project is a **real-time crack detection system** running on **Raspberry Pi**, powered by **YOLOv8** object detection. When a crack is detected in the camera feed, an **LED** is triggered via GPIO.
+This project is a **real-time crack detection system** running on **Raspberry Pi**, powered by **YOLOv11** object detection. When a crack is detected in the camera feed, an **LED** is triggered via GPIO.
 
 ## 📸 Features
 
