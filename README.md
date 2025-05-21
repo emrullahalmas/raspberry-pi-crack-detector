@@ -1,11 +1,11 @@
 # Raspberry Pi Crack Detector 🔍
 
-This project is a **real-time crack detection system** running on **Raspberry Pi**, powered by **YOLOv11** object detection. When a crack is detected in the camera feed, an **LED** is triggered via GPIO.
+This project is a **real-time crack detection system** running on **Raspberry Pi**, powered by **YOLOv8** object detection. When a crack is detected in the camera feed, an **LED** is triggered via GPIO.
 
 ## 📸 Features
 
 - Runs on Raspberry Pi (tested on Pi 5)
-- Real-time crack detection with YOLOv11
+- Real-time crack detection with YOLOv8
 - Activates LED when a crack is found
 - Python-based, easy to deploy
 
@@ -13,16 +13,30 @@ This project is a **real-time crack detection system** running on **Raspberry Pi
 
 - Raspberry Pi OS (Bullseye or newer)
 - Python 3.8+
-- `ultralytics` (YOLOv11)
+- `ultralytics` (YOLOv8)
 - `opencv-python`
 - `torch`
+- `ncnn`
 - A USB or Pi Camera Module
-- One LED connected to GPIO pin
+- One LED connected to GPIO17 (physical pin 11) and GND
 
-## ⚙️ Installation
+## ⚙️ Installation & Setup
 
 ```bash
-git clone https://github.com/emrullahalmsns/raspberry-pi-crack-detector.git
-cd raspberry-pi-crack-detector
-pip install -r requirements.txt
+sudo apt update && sudo apt upgrade -y
 
+mkdir yolo
+cd yolo
+
+python -m venv --system-site-packages venv
+source venv/bin/activate
+
+pip install ultralytics ncnn opencv-python torch
+
+ls /dev/video*   # To check if the camera is detected
+
+# Export YOLO model to NCNN format (if needed)
+yolo export model=my_model.pt format=ncnn
+
+# Run detection script with model and camera input
+python yolo_detect.py --model=my_model_ncnn_model --source=usb0 --resolution=1280x720
